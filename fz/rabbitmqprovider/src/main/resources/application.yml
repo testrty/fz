@@ -1,0 +1,32 @@
+server:
+  port: 8021
+spring:
+  application:
+    name: rabbitmq-provider
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/testbygo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: mysql
+    url: jdbc:mysql://localhost:3306/testbygo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: mysql
+eureka:
+  instance:
+    hostman: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8084/eureka/
+
+#eureka:
+#  instance:
+#    hostman: 127.0.0.1
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:8084/eureka/

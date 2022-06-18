@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.md.mybatisplus.t.mapper.OrderMapper">
+<!-- 一对多的配置 -->
+    <!-- 订单的数据 -->
+    <resultMap id="orderDetails" type="com.md.mybatisplus.t.entity.Order">
+        <id property="id" column="id"></id>
+        <result property="ordername" column="ordername"></result>
+        <result property="orderdress" column="orderdress"></result>
+        <result property="orderstatus" column="orderstatus"></result>
+
+        <!--订单详情数据  -->
+        <collection property="orderdetailss" ofType="com.md.mybatisplus.t.entity.Orderdetails">
+            <id property="id" column="id"></id>
+            <result property="ordername" column="ordername"></result>
+            <result property="orderdate" column="orderdate"></result>
+            <result property="orderprice" column="orderprice"></result>
+        </collection>
+
+    </resultMap>
+
+
+    <select id="orderAndDetails" parameterType="com.md.mybatisplus.t.entity.Order" resultMap="orderDetails">
+
+     select d.*,o.* from  orders o left join
+     orderdetails d on d.orderid=o.orderid
+
+    </select>
+
+
+</mapper>

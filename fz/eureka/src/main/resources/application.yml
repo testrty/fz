@@ -1,0 +1,21 @@
+server:
+  port: 8084
+#  tomcat:
+eureka:
+  instance:
+  ##lease-renewal-interval-in-seconds: 60
+  client:
+    #是否注册自己
+    register-with-eureka: false
+    #是否查询服务
+    fetch-registry: false
+    #注册中心地址
+    service-url:
+      defaultZone: http://localhost:8084/eureka/
+  server:
+    #开启自我保护机制
+    enable-self-preservation: true
+    #清理无效节点
+    ##eviction-interval-timer-in-ms: 6000
+
+

@@ -1,0 +1,73 @@
+server:
+  port: 1001
+#  tomcat:
+
+eureka:
+  instance:
+    hostman: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8084/eureka/
+
+spring:
+  application:
+    name: cloudFeign
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/testbygo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      username: root
+      password: mysql
+    url: jdbc:mysql://localhost:3306/testbygo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: mysql
+
+  redis:
+    host: 127.0.0.1
+    password:
+    timeout: 96000 #链接超时时间（毫秒）
+#    pool:
+#      max-active: 600 #链接池最大链接数（使用负值表示没有限制）
+#      max-wait: 1000 #连接池最大阻塞等待时间（使用负值表示没有限制）
+#      max-idle: 300 #连接池中的最大空闲链接
+#      min-idle: 0 #线程池中的最小空闲链接
+    lettuce:
+      pool:
+        max-active: 600 #链接池最大链接数（使用负值表示没有限制）
+        max-wait: 1000 #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-idle: 300 #连接池中的最大空闲链接
+        min-idle: 0 #线程池中的最小空闲链接
+    port: 6379
+#    sentinel:
+#      master: mymaste
+#      nodes: 127.0.0.1:6380,127.0.0.1:6381
+
+# 开启断路器
+feign:
+  hystrix:
+    enabled: true
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   #日志文件
+  #mapper-locations: com.md.mybatisplus.t.mapper.xml/*mapper.xml    classpath*:/com/md/mybatisplus/t/mapper/xml/*.xml
+  #   F:\az\fz\fz\cloud_feign\src\main\resources\mapper\LocalTestMapper.xml
+  mapper-locations: classpath*:mapper/*.xml
+  # mapper-locations: classpath:/mapper/*Mapper.xml
+  global-config:
+    # 逻辑删除配置
+    db-config:
+      # 删除前
+      logic-not-delete-value: 1
+      # 删除后
+      logic-delete-value: 0
+  type-aliases-package: com.md.mybatisplus.t.entity
+#mybatis:
+#  type-aliases-package: com.md.mybatisplus.t.entity
+#  mapper-locations: classpath*:/mapper/*Mapper.xml
+#  config-location: classpath:mybatis/mybatis-config.xml
+#开启路由配置  说明：routes一下的 名称是自己随意命名的
+logging:
+  level:
+    com.md.mybatisplus.t.mapper: debug

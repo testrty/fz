@@ -1,0 +1,26 @@
+server:
+  port: 8022
+spring:
+  application:
+    name: rabbitmq-consumer
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:mysql://localhost:3306/testbygo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: mysql
+eureka:
+  instance:
+    hostman: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8084/eureka/
+
+
+
+
+# 这里的配置文件一定要配置注册在注册中心中
+

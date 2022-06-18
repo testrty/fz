@@ -1,0 +1,29 @@
+server:
+  port: 1005
+spring:
+  application:
+    name: api-gateway
+#配置多个路由
+zuul:
+  routes:
+    user:
+      path: /route/**  #路由前缀随便写
+      serviceId: cloudFeign #服务名称
+    user-2:
+      path: /u2/**
+      serviceId: cloudprover  #服务名称
+
+eureka:
+  instance:
+    hostman: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8084/eureka/
+
+
+
+
+
+
+
+
