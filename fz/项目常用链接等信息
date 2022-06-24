@@ -1,32 +1,90 @@
-http://127.0.0.1:8085/get
-
-http://127.0.0.1:1001/cloudtest/getByFeign
-
-http://127.0.0.1:8084/
-
-http://127.0.0.1:1005/route/cloudtest/getByFeign?accessToken=token
-
-http://127.0.0.1:8085/get?accessToken=token
-
-jenkins密码： 224b3ca0b5224e96a667069a9a7c9c73
-
-jenkins: http://localhost:8080/
-
-http://localhost:1001/t/localTest/hi
-
-http://127.0.0.1:1001/swagger-ui.html
 
 
-http://127.0.0.1:8085/swagger-ui.html
-
-http://localhost:8083/swagger-ui.html
-
-
-http://localhost:8021/swagger-ui.html
-http://localhost:8021/pro/send
-
-http://localhost:8022/swagger-ui.html
-http://localhost:8022/cu/custom
+ 前言：
+ 1 导入idea :https://blog.csdn.net/qq_40298351/article/details/109735292
+ 2 父工程中，再加入子模块：
 
 
- http://192.168.1.103:8080/t/localTest/hi
+ 端口号信息：
+
+ eureka:9006
+ cloud_provider:8085
+ cloud_feign:
+     端口号： 1001  服务名称：cloudprover  现有业务 ：
+     1 打印 FeignApplication的注入信息
+     2 FeignTestController 一个简单的微服务跑了
+     md下：
+     1 获取token
+     2 减少重复get/set
+     3 查询所有  暂没有分页  暂没有redis
+     4 单个新增 加密注册
+     5 批量新增
+     6
+ zuul:
+ 1005
+
+ 这结构能改过来吗
+
+
+ swagger可以访问的地址：
+ http://127.0.0.1:1001/swagger-ui.html
+
+ 就一个hi的访问地址
+ http://127.0.0.1:1001/c/hi
+
+ zuule访问hi
+ http://127.0.0.1:1005/route/c/hi
+
+ 我们公司 是 nacos + springcloud gateway 当网关和注册中心的
+
+ ConfigServerApplication 建包名的问题
+
+ http://127.0.0.1:1005/c/hi
+
+
+ 码云：
+ 198
+ 1.。q..
+ 一棵树
+
+
+
+
+
+ http://localhost:1001/c/goMybatisp
+
+ http://127.0.0.1:1001/route/cloudtest/getByFeign?accessToken=token
+
+ http://127.0.0.1:8085/get
+
+ http://127.0.0.1:1001/cloudtest/getByFeign
+
+ http://127.0.0.1:8084/
+
+ http://127.0.0.1:1005/route/cloudtest/getByFeign?accessToken=token
+
+ http://127.0.0.1:1005/route/cloudtest/getToken
+
+ http://127.0.0.1:1001/getToken?accessToken=token
+
+ http://127.0.0.1:8085/get?accessToken=token
+
+ jenkins密码： 224b3ca0b5224e96a667069a9a7c9c73
+
+ jenkins: http://localhost:8080/
+
+ http://localhost:1005/t/localTest/hi
+
+ http://127.0.0.1:8085/swagger-ui.html
+
+ http://localhost:8083/swagger-ui.html
+
+
+ http://localhost:8021/swagger-ui.html
+ http://localhost:8021/pro/send
+
+ http://localhost:8022/swagger-ui.html
+ http://localhost:8022/cu/custom
+ http://localhost:1001/swagger-ui.html
+
+  http://192.168.1.103:8080/t/localTest/hi
