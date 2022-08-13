@@ -24,17 +24,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 
-
 /**
- * go
- *
- * @author md
- * @since 2021-04-04
+ 登录注册相关的
  */
 @RestController
 @RequestMapping("/c")
-@Api(value = "/api", tags = {"测试"}, description = "测试接口")
-public class LocalTestController {
+@Api(value = "/api", tags = {"登录注册相关"}, description = "登录注册相关接口")
+public class LoginController {
     @Autowired
     LocalTestService localTestService;
 
@@ -43,6 +39,58 @@ public class LocalTestController {
 
     @Autowired
     TokenService tokenService;
+
+
+    /**
+     * https://blog.csdn.net/tsundere_x/article/details/104196411
+     *这里用Spring Security加密
+     *注册
+     *
+     * 数据库里的加密后的值不同,实际上都是相同的
+     *
+     * 每次的盐不一样
+     * 然后生成的hash也不一样
+     *
+     * 2 表单重复提交  需要redis机器
+     */
+    @ApiOperation(value = "单个新增 加密注册", notes = "新增add 注册")
+    @AutoIdempotent
+    @PostMapping(value = "/add")
+    @ApiImplicitParam(name = "token", value = "token", required = false, dataType = "String",paramType="header")
+    public R add(@RequestBody LocalTest localTest, HttpRequest r) {
+
+        //  r.getHeaders()
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
+        String encode = encoder.encode(localTest.getName());
+        System.out.println(encoder.matches("string",encode));  ;
+        localTest.setName(encode );
+        localTestService.save(localTest);
+        return R.OK(true);
+    }
+
+
+    /**
+     * 批量新增（注册）
+     */
+    @ApiOperation(value = "批量新增（注册）   或修改", notes = "批量新增（注册） 增加 add")
+
+    @PostMapping(value = "/addlist")
+    public R addlisttt(@RequestBody  List< LocalTest> entityList) {
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        for(int i=0;i<entityList.size();i++){
+            LocalTest listName=entityList.get(i);
+            String  getname=listName.getName();
+            String encode = encoder.encode(getname);
+            listName.setName(encode);
+        }
+
+        localTestService.saveBatch(entityList);
+        return R.OK(true);
+    }
+
+
 
     @ApiOperation(value = "获取token", notes = "")
     @GetMapping(value = "/getToken")
@@ -54,13 +102,16 @@ public class LocalTestController {
 
 
 
-    @ApiOperation(value = "你好跑吧", notes = "")
+    @ApiOperation(value = "登录接口", notes = "")
     @GetMapping(value = "/hi")
 
     public Object hello(HttpServletRequest req, HttpServletResponse resp,String sessionToken) {
 
         return "hello";
     }
+
+
+
     /**
      * BeanUtils.copyProperties();  减少重复get/set
      */
@@ -85,33 +136,6 @@ public class LocalTestController {
     }
 
 
-    /**
-     * https://blog.csdn.net/tsundere_x/article/details/104196411
-     *这里用Spring Security加密
-     *注册
-     *
-     * 数据库里的加密后的值不同,实际上都是相同的
-     *
-     * 每次的盐不一样
-     * 然后生成的hash也不一样
-     *
-     * 2 表单重复提交
-     */
-    @ApiOperation(value = "单个新增 加密注册", notes = "新增add 注册")
-    @AutoIdempotent
-    @PostMapping(value = "/add")
-    @ApiImplicitParam(name = "token", value = "token", required = false, dataType = "String",paramType="header")
-    public R add(@RequestBody LocalTest localTest, HttpRequest r) {
-
-      //  r.getHeaders()
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-     String encode = encoder.encode(localTest.getName());
-        System.out.println(encoder.matches("string",encode));  ;
-         localTest.setName(encode );
-        localTestService.save(localTest);
-        return R.OK(true);
-    }
 
     /**修改密码
      *用户名填写正确
@@ -120,53 +144,10 @@ public class LocalTestController {
 
 
 
-    /**
-     * 批量新增
-     */
-    @ApiOperation(value = "批量新增   或修改", notes = "批量新增 增加 add")
-
-    @PostMapping(value = "/addlist")
-    public R addlisttt(@RequestBody  List< LocalTest> entityList) {
-
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        for(int i=0;i<entityList.size();i++){
-            LocalTest listName=entityList.get(i);
-            String  getname=listName.getName();
-            String encode = encoder.encode(getname);
-            listName.setName(encode);
-        }
-
-        localTestService.saveBatch(entityList);
-        return R.OK(true);
-    }
 
 
-    /**
-     * 先线程，后线程池  线程池 批量新增40万数据
-     *
-     * 这样一次性新增20-40万数据，很慢 也可能和电脑cpu有关，自己电脑cpu好一些，一万数据也用了8秒
-     *
-     */
-    @ApiOperation(value = "线程池", notes="threadPool" )
-    @PostMapping(value = "/threadPool")
-    public  R threadPool(){
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-       // for (int k=0;k<5;k++) {
-            new Thread(() -> {
-                List<LocalTest> entityList=null;
-                entityList = new ArrayList<>();
-                for (int i = 0; i <= 10000; i++) {  //
-                    LocalTest l = new LocalTest();
-                    l.setName("你好");
-                    l.setId(i);
-                    entityList.add(l);
-                }
-                localTestService.saveBatch(entityList);
-            }).start();
-      //  }
-        return R.OK(true);
 
-    }
+
 
 
 

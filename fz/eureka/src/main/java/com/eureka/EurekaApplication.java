@@ -17,11 +17,13 @@ import org.springframework.core.SpringVersion;
 public class EurekaApplication {
     public static void main(String[] args)
     {
-        String version = SpringVersion.getVersion();
-        String version1 = SpringBootVersion.getVersion();
+        String version = SpringVersion.getVersion(); //spring版本
+        String version1 = SpringBootVersion.getVersion();//springboot版本
         //结果 4.3.13.RELEAS120000E方法士大夫1.5.9.RELEASE    springboot版本  v1.5.9.RELEASE
         System.out.println(version+"方法士大夫"+version1);
         SpringApplication.run(EurekaApplication.class, args);
+
+
     }
 }
 

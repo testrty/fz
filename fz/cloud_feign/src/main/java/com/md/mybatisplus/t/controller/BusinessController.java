@@ -15,18 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author md
- * @since 2021-07-26
+  具体业务方面的
  */
+
+
+
 //@Controller
 @RestController
 @RequestMapping("/order/order")
 @Api(value = "/api", tags = {"订单"}, description = "订单接口")
-public class OrderController {
+public class BusinessController {
 
     @Autowired
     OrderService orderService;
@@ -36,6 +34,8 @@ public class OrderController {
     public Object hello() {
         return "hello";
     }
+
+
 
 
     @ApiOperation(value = "订单下的订单详情", notes = "一个订单，多个详情")

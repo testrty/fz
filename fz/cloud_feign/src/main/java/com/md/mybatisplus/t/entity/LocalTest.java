@@ -40,7 +40,7 @@ public class LocalTest extends Model<LocalTest> {
 //  @TableId
 //  @Id
 
-    @ApiModelProperty(value="用户名",name="id",example="xingguo")
+    @ApiModelProperty(value="用户名",name="id",example="12")
     private Integer id;
 
     @ApiModelProperty(value="用户名",name="name",example="xingguo",required=true)
