@@ -38,7 +38,7 @@ public class MainAutomaticGeneration {
         //数据源
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDbType(DbType.MYSQL);
-        dataSourceConfig.setUrl("jdbc:mysql://localhost:3306/testBygo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
+        dataSourceConfig.setUrl("jdbc:mysql://192.168.1.121:3306/testBygo?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai");
         dataSourceConfig.setUsername("root");
         dataSourceConfig.setPassword("mysql");
         dataSourceConfig.setDriverName("com.mysql.cj.jdbc.Driver");

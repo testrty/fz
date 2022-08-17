@@ -83,7 +83,7 @@ public class ThreadController {
             for (int i = 0; i <= 10000; i++) {  //
                 LocalTest l = new LocalTest();
                 l.setName("你好");
-                l.setId(i);
+                l.setName("用户名");
                 entityList.add(l);
             }
             localTestService.saveBatch(entityList);

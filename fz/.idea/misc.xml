@@ -12,6 +12,8 @@
         <option value="$PROJECT_DIR$/rabbitmqconsumer/pom.xml" />
         <option value="$PROJECT_DIR$/fz/eureka/pom.xml" />
         <option value="$PROJECT_DIR$/fz/pom.xml" />
+        <option value="$PROJECT_DIR$/com.configClient/pom.xml" />
+        <option value="$PROJECT_DIR$/com.configServer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

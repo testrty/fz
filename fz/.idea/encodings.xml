@@ -6,13 +6,15 @@
     <file url="file://$PROJECT_DIR$/cloud_client/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud_feign" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud_feign/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cloud_provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.common" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.configClient" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/com.configServer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.zuul" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/com.zuul/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/fz/eureka" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbitmqconsumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbitmqconsumer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/rabbitmqprovider" charset="UTF-8" />

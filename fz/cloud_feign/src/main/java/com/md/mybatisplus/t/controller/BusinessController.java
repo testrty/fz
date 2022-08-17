@@ -1,6 +1,5 @@
 package com.md.mybatisplus.t.controller;
 
-
 import com.md.mybatisplus.t.Utils.R;
 import com.md.mybatisplus.t.entity.Order;
 import com.md.mybatisplus.t.service.OrderService;
@@ -17,8 +16,6 @@ import java.util.List;
 /**
   具体业务方面的
  */
-
-
 
 //@Controller
 @RestController

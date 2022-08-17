@@ -40,15 +40,20 @@ public class LocalTest extends Model<LocalTest> {
 //  @TableId
 //  @Id
 
-    @ApiModelProperty(value="用户名",name="id",example="12")
-    private Integer id;
+
 
     @ApiModelProperty(value="用户名",name="name",example="xingguo",required=true)
     private String name;
 
+    @ApiModelProperty(value="密码",name="password",example="")
+    private String  password;
+
+    @ApiModelProperty(value="自增id",name="自增id",example="")
+    private String  id;
+
 
     @Override
     protected Serializable pkVal() {
-        return id;
+        return null;
     }
 }

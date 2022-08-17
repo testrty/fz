@@ -1,6 +1,8 @@
 package com.md.mybatisplus.t.controller;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.service.IService;
 import com.md.mybatisplus.t.Utils.AutoIdempotent;
 import com.md.mybatisplus.t.Utils.R;
@@ -34,8 +36,8 @@ public class LoginController {
     @Autowired
     LocalTestService localTestService;
 
-    @Autowired
-    RedisTemplate redisTemplate;
+//    @Autowired
+//    RedisTemplate redisTemplate;
 
     @Autowired
     TokenService tokenService;
@@ -100,14 +102,25 @@ public class LoginController {
     }
 
 
-
-
     @ApiOperation(value = "登录接口", notes = "")
-    @GetMapping(value = "/hi")
+    @GetMapping(value = "/login")
+   // @ApiImplicitParam(name = "token", value = "token", required = false, dataType = "String",paramType="header")
+    public Object login(@RequestBody LocalTest localTest,String sessionToken) {
 
-    public Object hello(HttpServletRequest req, HttpServletResponse resp,String sessionToken) {
+        String name=localTest.getName();
+        String password=localTest.getPassword();
+        //QueryWrapper<localTest> w= Wrapper.
+        //Wrapper<T> w=new Wrapper<T>();
+        QueryWrapper<LocalTest> wrapper = Wrappers.query();
+        LocalTest locallogin =localTestService.getOne(wrapper);
+        if(!locallogin.equals("null")){
+           //加载主页面数据
+            System.out.println("登录了");
+        }else{
+            System.out.println("账号或密码错误");
+        }
 
-        return "hello";
+        return "login";
     }
 
 
@@ -123,17 +136,17 @@ public class LoginController {
 
 
 
-    @ApiOperation(value = "查询所有  暂没有分页  暂没有redis", notes = "")
-    @GetMapping(value = "/goMybatisp")
-    public R goMybatisp() {
-        ValueOperations<String, String> operations = redisTemplate.opsForValue();
-        operations.set("12313", "sff");
-       // operations.ex
-        //获取缓存数据
-       // List<LocalTest> all = localTestService.getAll();
-        List<LocalTest> all =  localTestService.list();
-        return R.OK(all);
-    }
+//    @ApiOperation(value = "查询所有  暂没有分页  暂没有redis", notes = "")
+//    @GetMapping(value = "/goMybatisp")
+//    public R goMybatisp() {
+//        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+//        operations.set("12313", "sff");
+//       // operations.ex
+//        //获取缓存数据
+//       // List<LocalTest> all = localTestService.getAll();
+//        List<LocalTest> all =  localTestService.list();
+//        return R.OK(all);
+//    }
 
 
 

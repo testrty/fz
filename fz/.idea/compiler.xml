@@ -10,6 +10,8 @@
         <module name="cloud_client" />
         <module name="cloud_feign" />
         <module name="com.common" />
+        <module name="com.configClient" />
+        <module name="com.configServer" />
         <module name="com.eureka" />
         <module name="com.eureka (1)" />
         <module name="com.zuul" />
@@ -42,6 +44,8 @@
       <module name="cloud_feign (1)" options="-parameters" />
       <module name="com.common" options="-parameters" />
       <module name="com.common (1)" options="-parameters" />
+      <module name="com.configClient" options="-parameters" />
+      <module name="com.configServer" options="-parameters" />
       <module name="com.eureka" options="-parameters" />
       <module name="com.eureka (1)" options="-parameters" />
       <module name="com.zuul" options="-parameters" />
