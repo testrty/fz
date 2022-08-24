@@ -26,7 +26,7 @@ public class BusinessController {
     @Autowired
     OrderService orderService;
 
-    @ApiOperation(value = "订单跑", notes = "")
+    @ApiOperation(value = "订单详情", notes = "")
     @GetMapping(value = "/hi")
     public Object hello() {
         return "hello";

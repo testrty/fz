@@ -76,7 +76,6 @@ public class LoginController {
      * 批量新增（注册）
      */
     @ApiOperation(value = "批量新增（注册）   或修改", notes = "批量新增（注册） 增加 add")
-
     @PostMapping(value = "/addlist")
     public R addlisttt(@RequestBody  List< LocalTest> entityList) {
 
@@ -103,9 +102,11 @@ public class LoginController {
 
 
     @ApiOperation(value = "登录接口", notes = "")
-    @GetMapping(value = "/login")
-   // @ApiImplicitParam(name = "token", value = "token", required = false, dataType = "String",paramType="header")
-    public Object login(@RequestBody LocalTest localTest,String sessionToken) {
+    @PostMapping(value = "/login")
+ @ApiImplicitParam(name = "token", value = "token", required = false, dataType = "String",paramType="header")
+  //  public Object login(@RequestBody LocalTest localTest,String sessionToken) {
+  //  public R login(@RequestBody LocalTest localTest,String sessionToken) {
+    public R login(@RequestBody LocalTest localTest) {
 
         String name=localTest.getName();
         String password=localTest.getPassword();
@@ -113,14 +114,16 @@ public class LoginController {
         //Wrapper<T> w=new Wrapper<T>();
         QueryWrapper<LocalTest> wrapper = Wrappers.query();
         LocalTest locallogin =localTestService.getOne(wrapper);
-        if(!locallogin.equals("null")){
-           //加载主页面数据
-            System.out.println("登录了");
-        }else{
-            System.out.println("账号或密码错误");
+        if(locallogin!=null) {
+            if (!locallogin.equals("null")) {
+                //加载主页面数据
+                System.out.println("登录了");
+            } else {
+                System.out.println("账号或密码错误");
+            }
         }
-
-        return "login";
+return R.ok1().data("S",1);
+        //return "login";
     }
 
 
@@ -158,7 +161,7 @@ public class LoginController {
 
 
 
-
+//单点登录
 
 
 
