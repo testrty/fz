@@ -1,5 +1,6 @@
 package com.md.mybatisplus.t.controller;
 
+import com.md.mybatisplus.t.Utils.GlobalExceptionHandler;
 import com.md.mybatisplus.t.Utils.R;
 import com.md.mybatisplus.t.entity.Order;
 import com.md.mybatisplus.t.service.OrderService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,10 +28,17 @@ public class BusinessController {
     @Autowired
     OrderService orderService;
 
-    @ApiOperation(value = "订单详情", notes = "")
+    @ApiOperation(value = "hi全局捕获异常", notes = "")
     @GetMapping(value = "/hi")
     public Object hello() {
-        return "hello";
+
+            try {
+                throw new Exception("出错了");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        return new GlobalExceptionHandler().errorResult(new Exception());
     }
 
 

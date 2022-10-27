@@ -41,6 +41,16 @@ spring:
 #    sentinel:
 #      master: mymaste
 #      nodes: 127.0.0.1:6380,127.0.0.1:6381
+  task:
+    execution: #可以单独打印看提示
+      pool:
+        core-size: 8 #自己写的是8
+        max-size: 16
+        keep-alive: 60s #默认值
+        allow-core-thread-timeout: true #默认是true
+        queue-capacity: 100
+      shutdown:
+        await-termination: false
 
 # 开启断路器
 feign:
@@ -71,3 +81,5 @@ mybatis-plus:
 logging:
   level:
     com.md.mybatisplus.t.mapper: debug
+
+

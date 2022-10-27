@@ -46,14 +46,14 @@ public class AdminInterceptor implements HandlerInterceptor {
         //拿到方法上面的自定义注解
         AutoIdempotent annotation = method.getAnnotation(AutoIdempotent.class);
 
-        //如果不等于null说明该方法要进行幂等
-        if (null != annotation) {
-            System.out.println();
-            System.out.println("异常了吗   。。。。。。。。。。。。。。。。。。。。。。。。");
-            return  tokenService.checktoen(request);
-        }
-
-        return true;
+//        //如果不等于null说明该方法要进行幂等
+//        if (null != annotation) {
+//            System.out.println();
+//            System.out.println("异常了吗   。。。。。。。。。。。。。。。。。。。。。。。。");
+//            return  tokenService.checktoen(request);
+//        }
+//
+       return true;
     }
 
 

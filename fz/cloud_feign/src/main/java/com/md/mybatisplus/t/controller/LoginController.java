@@ -8,9 +8,12 @@ import com.md.mybatisplus.t.Utils.AutoIdempotent;
 import com.md.mybatisplus.t.Utils.R;
 import com.md.mybatisplus.t.entity.LocalTest;
 import com.md.mybatisplus.t.service.LocalTestService;
+import com.md.mybatisplus.t.service.ThreadPoolService;
+import com.md.mybatisplus.t.service.impl.ThreadPoolServiceImpl;
 import com.md.mybatisplus.t.service.impl.TokenService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 
 import org.apache.http.HttpRequest;
@@ -41,6 +44,9 @@ public class LoginController {
 
     @Autowired
     TokenService tokenService;
+
+    @Autowired
+    ThreadPoolService threadPoolService;
 
 
     /**
@@ -125,6 +131,18 @@ public class LoginController {
 return R.ok1().data("S",1);
         //return "login";
     }
+
+    /**
+     * 整合线程池异步登录
+     */
+@ApiOperation(value="登录整合线程池异步")
+@PostMapping("/loginAThreadPool")
+/*@ApiImplicitParams()*/
+public R loginAThreadPool(){
+    threadPoolService.sms();
+    return R.ok1().data("K",1);
+}
+
 
 
 

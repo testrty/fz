@@ -40,7 +40,7 @@ public class TokenService {
         //判断缓存中是否存在
         if (!redisService.exists(token)) {
             System.out.println("重复提交token");;
-            throw new BaseException(20001, "不能重复提交-------token不正确、空");
+//            throw new BaseException(20001, "不能重复提交-------token不正确、空");
         }
 
         //token正确 移除token

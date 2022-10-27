@@ -16,6 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 //@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
 @SpringBootApplication
+//@SpringBootApplication(scanBasePackages = {"com.md.mybatisplus.t.Utils"})
 @EnableFeignClients(basePackages = {"com.feigncommon","com.feign"})
 @ComponentScan(basePackages = {"com.md.mybatisplus.t","com.util"})
 @EnableDiscoveryClient
