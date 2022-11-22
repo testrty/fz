@@ -12,6 +12,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.SpringVersion;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 //@SpringBootApplication(exclude={DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class})
@@ -23,6 +25,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableHystrix
 @MapperScan("com.md.mybatisplus.t.mapper")
 @EnableSwagger2
+
+/*启动类中开启异步注解*/
+@EnableAsync
+@EnableScheduling
 //@ConditionalOnProperty(name="swagger.enable" ,havingValue="true")
 public class FeignApplication {
 

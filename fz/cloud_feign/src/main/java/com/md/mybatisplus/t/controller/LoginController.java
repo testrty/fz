@@ -28,6 +28,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  登录注册相关的
@@ -138,9 +140,10 @@ return R.ok1().data("S",1);
 @ApiOperation(value="登录整合线程池异步")
 @PostMapping("/loginAThreadPool")
 /*@ApiImplicitParams()*/
-public R loginAThreadPool(){
-    threadPoolService.sms();
-    return R.ok1().data("K",1);
+public R loginAThreadPool() throws ExecutionException, InterruptedException {
+    Future<String> future = threadPoolService.sms();
+    threadPoolService.sms2();
+    return R.ok1().data("用户注册成功",future.get());
 }
 
 
