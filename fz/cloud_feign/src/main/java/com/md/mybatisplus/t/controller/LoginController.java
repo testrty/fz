@@ -209,9 +209,19 @@ public R loginAThreadPool() throws ExecutionException, InterruptedException {
     }
 
 
+    /** 重复提交数据 **
+     *
+     */
+    @ApiOperation(value = "重复提交数据", notes = "重复提交数据")
+    @PostMapping(value = "/repeat")
+    public R repeat( ) {
 
 
+        //生成token
+        String token=tokenService.createToken();
 
+        return  R.ok1();
+    }
 
     /**
      * 远程执行liunx脚本命令

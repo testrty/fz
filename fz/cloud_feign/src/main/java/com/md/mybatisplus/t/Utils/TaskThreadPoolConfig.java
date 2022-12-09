@@ -7,17 +7,20 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.Executor;
+
 @Configuration
 @EnableAsync
-@Component
+//@Component
 public class TaskThreadPoolConfig {
     /* 核心线程数*/
     private int corePoolSize;
     /*最大线程数 */
     private int maxPoolSize;
 
-    //@Bean  有这个就会报错
-public TaskExecutor taskExecutor(){
+  // @Bean // 有这个就会报错
+//public TaskExecutor taskExecutor(){
+public Executor taskExecutor(){
         ThreadPoolTaskExecutor executor=new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(corePoolSize);
         executor.setMaxPoolSize(maxPoolSize);
