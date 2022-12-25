@@ -3,7 +3,7 @@ package com.md.mybatisplus.t.controller;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.service.IService;
+
 import com.md.mybatisplus.t.Utils.AutoIdempotent;
 import com.md.mybatisplus.t.Utils.R;
 import com.md.mybatisplus.t.entity.LocalTest;

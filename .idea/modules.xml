@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/fz/cloud_client/cloud_client.iml" filepath="$PROJECT_DIR$/fz/cloud_client/cloud_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/cloud_feign/cloud_feign.iml" filepath="$PROJECT_DIR$/fz/cloud_feign/cloud_feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/com.common/com.common.iml" filepath="$PROJECT_DIR$/fz/com.common/com.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/com.configClient/com.configClient.iml" filepath="$PROJECT_DIR$/fz/com.configClient/com.configClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/eureka/com.eureka.iml" filepath="$PROJECT_DIR$/fz/eureka/com.eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/com.zuul/com.zuul.iml" filepath="$PROJECT_DIR$/fz/com.zuul/com.zuul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/fz.iml" filepath="$PROJECT_DIR$/fz/fz.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/fzgithub.iml" filepath="$PROJECT_DIR$/.idea/fzgithub.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/rabbitmqconsumer/rabbitmqconsumer.iml" filepath="$PROJECT_DIR$/fz/rabbitmqconsumer/rabbitmqconsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/rabbitmqprovider/rabbitmqprovider.iml" filepath="$PROJECT_DIR$/fz/rabbitmqprovider/rabbitmqprovider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fz/son/son.iml" filepath="$PROJECT_DIR$/fz/son/son.iml" />
     </modules>
   </component>
 </project>

@@ -6,7 +6,7 @@ liunx:账号密码 ysj   192.168.242.135 （以下全为root账号）
  2 zookerper:    usr/mayikt
  3 kibana:
  4 nginx:   local/nginx
- 5
+ 5 logstash： usr/mayikt
 
 
  端口号信息：

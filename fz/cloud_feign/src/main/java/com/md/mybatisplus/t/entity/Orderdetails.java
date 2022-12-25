@@ -1,11 +1,11 @@
 package com.md.mybatisplus.t.entity;
 
 import java.util.Date;
-import com.baomidou.mybatisplus.activerecord.Model;
+
 import java.io.Serializable;
 
-import com.baomidou.mybatisplus.annotations.Version;
 
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
